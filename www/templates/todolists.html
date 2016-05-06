@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="http://code.ionicframework.com/1.0.0-beta.14/css/ionic.css" />
+	<script src="http://code.ionicframework.com/1.0.0-beta.14/js/ionic.bundle.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body ng-controller="TodolistCtrl">
+TODOLISTS
+<ion-header-bar align-title="center" class="bar-positive">
+	<h1 class="title">TODOLISTS</h1>
+</ion-header-bar>
+<ion-view view-title="Todolists">
+  <ion-content>
+<!--   <ion-scroll direction="x" style="width: 500px; height: 500px"> -->
+    <ion-list>
+      <ion-item ng-repeat="list in alllists" href="#/app/todos/{{list.listid}}">
+        Name: {{list.name}} 
+        <br/>
+        Id: {{list.listid}}
+		<a id="button-3" class="button button-clear button-energized" "href="#/app/todolists/{{list.listid}}" ng-click="setSelected($index)">edit</a>		
+		<button id="button-1" class="button icon-right ion-trash-a button-dark" ng-click="removeList(list)" style="float: right;"></button>
+<!-- 		<button id="button-2" class="button icon-right ion-android-note button" ng-click="goedit(list.listid)" style="float: right;"></button> -->
+		<div ng-show="selectedIdx == $index">
+			<label class="item item-input">
+				<input ng-model="editedList.name" placeholder="{{list.name}}" maxlength="20" type="text"/>
+			</label>
+		  	<button id="button-4" class="button button-positive" ng-click="updateList(list)">save</button>
+		  	<br/> {{editedList.name}}
+	  	</div>
+      </ion-item>
+    </ion-list>
+	<br/>
+	<label class="item item-input">
+		<span class="input-label">Listen-Name</span>
+		<input ng-model="newList.name" name="editListname" placeholder="Text" maxlength="50" type="text"/>
+	</label>
+	<br/>	
+<!-- 	<label class="item item-input"> -->
+<!-- 		<span class="input-label">Listen-ID</span> -->
+<!-- 		<input ng-model="newList.id" name="editListid" placeholder="Text" maxlength="3" type="text"/> -->
+<!-- 	</label> -->
+	<button id="insBtn" class="button button-assertive" ng-click="addList()" align="right">Einfügen</button>
+	{{name1}}
+<!--   </ion-scroll>	 -->
+  </ion-content>
+</ion-view>
+
+</body>
+</html>

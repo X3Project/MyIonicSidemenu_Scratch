@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<ion-view view-title="Tasks">
+  <ion-content>
+	<button id="button-1" class="button icon-left ion-android-arrow-back button-small button-clear">Back1</button>
+	<a id="button-2" class="button button-clear button-stable" href="/#/app/todolists">Back2</a>
+<!--   <ion-nav-buttons side="left"> -->
+<!--       <a href="/#/app/todolists" menu-toggle="left" class="button button-icon icon ion-navicon"></a> -->
+<!--   </ion-nav-buttons> -->
+    <ion-nav-back-button>vsdvs</ion-nav-back-button>
+    <ion-list>
+      <ion-item ng-repeat="task in tasks" href="#/app/tasks/{{$index}}">
+        {{task.description}}
+        <br/>
+        {{task.effort}}
+    	<br/>
+    	{{task.taskID}}
+      </ion-item>
+    </ion-list>
+	<button id="button-3" class="button icon-left ion-android-add button-block button-positive" ng-click="addTask()">Neu</button>
+  </ion-content>
+</ion-view>
+
+</body>
+</html>
